@@ -22,9 +22,10 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(200, "Welcome to Job Board API")
 	})
-
+	//Register Route
 	e.POST("/register", controllers.Register)
-
+	//Login Route
+	e.POST("/login",controllers.Login)
 
 	e.GET("/health", func(c echo.Context) error {
 		return c.String(200, "API is running")
