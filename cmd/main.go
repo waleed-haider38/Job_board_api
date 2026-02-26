@@ -3,6 +3,7 @@ package main
 import (
 	"job-board-api/config"
 	"job-board-api/controllers"
+	"job-board-api/middleware"
 	"job-board-api/migrations"
 
 	"github.com/labstack/echo/v4"
@@ -26,7 +27,10 @@ func main() {
 	e.POST("/register", controllers.Register)
 	//Login Route
 	e.POST("/login",controllers.Login)
+	//Test middleare
+	e.GET("/profile", controllers.Profile, middleware.JWTMiddleware)
 
+	
 	e.GET("/health", func(c echo.Context) error {
 		return c.String(200, "API is running")
 	})
