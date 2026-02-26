@@ -74,3 +74,14 @@ func Login(c echo.Context) error {
         "token":token,
     })
 }
+
+//Profile logic
+func Profile(c echo.Context) error {
+    userID := c.Get("user_id")
+    role := c.Get("role")
+
+    return c.JSON(http.StatusOK, echo.Map{
+        "user_id": userID,
+        "role": role,
+    })
+}
